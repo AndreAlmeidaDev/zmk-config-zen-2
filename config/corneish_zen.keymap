@@ -46,7 +46,7 @@
 &kp BACKSLASH         &kp EXCLAMATION   &kp AT_SIGN   &kp POUND          &kp DOLLAR       &kp PERCENT     &kp AMPERSAND   &kp SLASH       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp EQUAL  &kp K_SCREENSAVER
 &kp LG(LS(NUMBER_5))  &kp K_PLAY_PAUSE  &kp K_MUTE    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &bt BT_CLR      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW          &kp RIGHT_ARROW        &trans     &kp F12
 &bt BT_CLR_ALL        &bt BT_SEL 0      &bt BT_SEL 1  &bt BT_SEL 2       &bt BT_SEL 3     &bt BT_SEL 4    &sys_reset      &trans          &trans                &trans                 &trans     &kp ESCAPE
-                                                      &trans             &trans           &bootloader     &bootloader     &trans          &trans
+                                                      &kp CAPS           &trans           &bootloader     &bootloader     &trans          &trans
             >;
         };
 
