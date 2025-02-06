@@ -3,3 +3,4 @@ include:
   - board: corneish_zen_v2_right
   - board: nice_nano_v2
     shield: settings_reset
+    artifact-name: nice_settings_reset
