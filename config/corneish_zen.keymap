@@ -12,25 +12,25 @@
 &mt ESCAPE TAB             &kp Q             &kp W               &kp E                          &kp R           &kp T        &kp Y     &kp U            &kp I                &kp O                &kp P                      &mt LEFT_BRACKET RIGHT_BRACKET
 &mt LEFT_SHIFT LS(LG(S))   &mt LEFT_SHIFT A  &mt LEFT_CONTROL S  &mt LEFT_ALT D                 &mt LEFT_GUI F  &kp G        &kp H     &mt RIGHT_GUI J  &mt RIGHT_ALT K      &mt RIGHT_CONTROL L  &mt RIGHT_SHIFT SEMICOLON  &kp BACKSLASH
 &mt LEFT_CONTROL CAPSLOCK  &kp Z             &kp X               &kp C                          &kp V           &kp B        &kp N     &kp M            &kp COMMA            &kp DOT              &kp SLASH                  &kp SQT
-                                                                 &mt LS(NUMBER_2) LS(NUMBER_1)  &lt 1 ENTER     &kp SPACE    &kp BSPC  &lt 2 DELETE     &mt MINUS LS(MINUS)
+                                                                 &mt LS(NUMBER_2) LS(NUMBER_1)  &lt 0 ENTER     &kp SPACE    &kp BSPC  &lt 2 DELETE     &mt MINUS LS(MINUS)
             >;
         };
 
         lower {
             bindings = <
-&kp F1  &kp F2             &kp F3               &kp F4            &kp F5            &kp F6     &kp INSERT  &kp HOME                  &kp END                   &kp PAGE_UP                 &kp PAGE_DOWN                &trans
-&kp F7  &mt LEFT_SHIFT F8  &mt LEFT_CONTROL F9  &mt LEFT_ALT F10  &mt LEFT_GUI F11  &kp F12    &trans      &mt RIGHT_GUI LEFT_ARROW  &mt RIGHT_ALT DOWN_ARROW  &mt RIGHT_CONTROL UP_ARROW  &mt RIGHT_SHIFT RIGHT_ARROW  &trans
-&trans  &trans             &trans               &trans            &trans            &trans     &trans      &trans                    &trans                    &trans                      &trans                       &trans
-                                                &trans            &trans            &trans     &trans      &trans                    &trans
+&kp F1  &kp F2             &kp F3               &kp F4            &kp F5            &kp F6     &kp INSERT  &kp HOME        &kp END         &kp PAGE_UP   &kp PAGE_DOWN    &trans
+&kp F7  &mt LEFT_SHIFT F8  &mt LEFT_CONTROL F9  &mt LEFT_ALT F10  &mt LEFT_GUI F11  &kp F12    &trans      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
+&trans  &trans             &trans               &trans            &trans            &trans     &trans      &trans          &trans          &trans        &trans           &trans
+                                                &trans            &trans            &trans     &trans      &trans          &trans
             >;
         };
 
         raise {
             bindings = <
-&trans  &kp KP_PLUS      &kp KP_MINUS   &mt LS(NUMBER_7) NUMBER_7  &mt LS(NUMBER_8) NUMBER_8  &mt LS(NUMBER_9) NUMBER_9    &mt EQUAL NUBS  &mt LS(EQUAL) LS(NUBS)  &kp LS(NUMBER_8)  &kp LS(NUMBER_9)  &kp LS(NUMBER_2)  &kp MINUS
-&trans  &kp KP_MULTIPLY  &kp KP_DIVIDE  &mt LS(NUMBER_4) NUMBER_4  &mt LS(NUMBER_5) NUMBER_5  &mt LS(NUMBER_6) NUMBER_6    &kp GRAVE       &kp LS(NUMBER_7)        &kp RA(NUMBER_7)  &kp RA(NUMBER_0)  &kp LS(NUMBER_1)  &kp LS(MINUS)
-&trans  &trans           &trans         &mt LS(NUMBER_1) NUMBER_1  &mt LS(NUMBER_2) NUMBER_2  &mt LS(NUMBER_3) NUMBER_3    &trans          &kp LS(NUMBER_0)        &kp RA(NUMBER_8)  &kp RA(NUMBER_9)  &kp LS(NUMBER_6)  &kp LS(GRAVE)
-                                        &mt LS(NUMBER_0) NUMBER_0  &trans                     &trans                       &trans          &trans                  &trans
+&trans  &kp KP_PLUS      &kp KP_MINUS   &mt LS(NUMBER_7) NUMBER_7  &mt LS(NUMBER_8) NUMBER_8  &mt LS(NUMBER_9) NUMBER_9    &mt EQUAL NUBS  &mt LS(EQUAL) LS(NUBS)      &kp LS(NUMBER_8)            &kp LS(NUMBER_9)                &kp LS(NUMBER_2)              &kp MINUS
+&trans  &kp KP_MULTIPLY  &kp KP_DIVIDE  &mt LS(NUMBER_4) NUMBER_4  &mt LS(NUMBER_5) NUMBER_5  &mt LS(NUMBER_6) NUMBER_6    &kp GRAVE       &mt RIGHT_GUI LS(NUMBER_7)  &mt RIGHT_ALT RA(NUMBER_7)  &mt RIGHT_CONTROL RA(NUMBER_0)  &mt RIGHT_SHIFT LS(NUMBER_1)  &kp LS(MINUS)
+&trans  &trans           &trans         &mt LS(NUMBER_1) NUMBER_1  &mt LS(NUMBER_2) NUMBER_2  &mt LS(NUMBER_3) NUMBER_3    &trans          &kp LS(NUMBER_0)            &kp RA(NUMBER_8)            &kp RA(NUMBER_9)                &kp LS(NUMBER_6)              &kp LS(GRAVE)
+                                        &mt LS(NUMBER_0) NUMBER_0  &trans                     &trans                       &trans          &trans                      &trans
             >;
         };
 
@@ -48,7 +48,7 @@
         compatible = "zmk,conditional-layers";
 
         tri {
-            if-layers = <1 2>;
+            if-layers = <0 2>;
             then-layer = <3>;
         };
     };
