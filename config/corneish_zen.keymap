@@ -1,64 +1,44 @@
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
 
 / {
-    behaviors {
-        hml: homewrow_mods_left {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_LEFT_HAND";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            hold-trigger-key-positions = <19 6 18 30 39 40 41 7 8 9 10 11 19 20 21 22 23 31 32 33 34 35>;
-        };
-
-        hmr: homewrow_mods_right {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_RIGHT_HAND";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
         base {
             bindings = <
-&mt ESCAPE TAB  &kp Q              &kp W                &kp E            &kp R            &kp T        &kp Y     &kp U             &kp I             &kp O                 &kp P                  &kp MINUS
-&kp LG(LS(S))   &hml LEFT_SHIFT A  &hml LEFT_CONTROL S  &hml LEFT_ALT D  &hml LEFT_WIN F  &kp G        &kp H     &hmr RIGHT_WIN J  &hmr RIGHT_ALT K  &hmr RIGHT_CONTROL L  &hmr RIGHT_SHIFT SEMI  &kp BACKSLASH
-&kp LSHIFT      &kp Z              &kp X                &kp C            &kp V            &kp B        &kp N     &kp M             &kp COMMA         &kp DOT               &kp SLASH              &kp SQT
-                                                        &kp LCTRL        &lt 1 ENTER      &kp SPACE    &kp BSPC  &lt 2 DELETE      &kp RIGHT_WIN
+&mt ESCAPE TAB             &kp Q             &kp W               &kp E                          &kp R           &kp T        &kp Y     &kp U            &kp I                &kp O                &kp P                      &mt LEFT_BRACKET RIGHT_BRACKET
+&mt LEFT_SHIFT LS(LG(S))   &mt LEFT_SHIFT A  &mt LEFT_CONTROL S  &mt LEFT_ALT D                 &mt LEFT_GUI F  &kp G        &kp H     &mt RIGHT_GUI J  &mt RIGHT_ALT K      &mt RIGHT_CONTROL L  &mt RIGHT_SHIFT SEMICOLON  &kp BACKSLASH
+&mt LEFT_CONTROL CAPSLOCK  &kp Z             &kp X               &kp C                          &kp V           &kp B        &kp N     &kp M            &kp COMMA            &kp DOT              &kp SLASH                  &kp SQT
+                                                                 &mt LS(NUMBER_2) LS(NUMBER_1)  &lt 1 ENTER     &kp SPACE    &kp BSPC  &lt 2 DELETE     &mt MINUS LS(MINUS)
             >;
         };
 
         lower {
             bindings = <
-&kp F1          &kp F2              &kp F3                &kp F4             &kp F5             &kp F6     &kp HOME        &kp END         &kp PAGE_UP    &kp PAGE_DOWN    &trans  &trans
-&kp F7          &hml LEFT_SHIFT F8  &hml LEFT_CONTROL F9  &hml LEFT_ALT F10  &hml LEFT_WIN F11  &kp F12    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT_ARROW  &trans  &trans
-&kp LEFT_SHIFT  &kp INSERT          &trans                &trans             &trans             &trans     &kp EXCL        &kp QUESTION    &kp AMPERSAND  &kp PIPE         &trans  &trans
-                                                          &trans             &trans             &trans     &trans          &trans          &trans
+&kp F1  &kp F2             &kp F3               &kp F4            &kp F5            &kp F6     &kp INSERT  &kp HOME                  &kp END                   &kp PAGE_UP                 &kp PAGE_DOWN                &trans
+&kp F7  &mt LEFT_SHIFT F8  &mt LEFT_CONTROL F9  &mt LEFT_ALT F10  &mt LEFT_GUI F11  &kp F12    &trans      &mt RIGHT_GUI LEFT_ARROW  &mt RIGHT_ALT DOWN_ARROW  &mt RIGHT_CONTROL UP_ARROW  &mt RIGHT_SHIFT RIGHT_ARROW  &trans
+&trans  &trans             &trans               &trans            &trans            &trans     &trans      &trans                    &trans                    &trans                      &trans                       &trans
+                                                &trans            &trans            &trans     &trans      &trans                    &trans
             >;
         };
 
         raise {
             bindings = <
-&trans          &kp KP_PLUS      &kp KP_MINUS   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9    &kp LESS_THAN    &kp GREATER_THAN  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE
-&trans          &kp KP_MULTIPLY  &kp KP_DIVIDE  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6    &kp NON_US_HASH  &kp LS(NUMBER_7)  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp EXCL           &kp QUESTION
-&kp LEFT_SHIFT  &kp LEFT_ALT     &kp EQUAL      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3    &kp EXCLAMATION  &kp LS(NUMBER_0)  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp AMPERSAND      &kp PIPE
-                                                &kp NUMBER_0  &trans        &trans          &trans           &trans            &trans
+&trans  &kp KP_PLUS      &kp KP_MINUS   &mt LS(NUMBER_7) NUMBER_7  &mt LS(NUMBER_8) NUMBER_8  &mt LS(NUMBER_9) NUMBER_9    &mt BACKSLASH EQUAL  &mt LS(BACKSLASH) LS(EQUAL)  &kp LS(NUMBER_8)  &kp LS(NUMBER_9)  &kp LS(NUMBER_2)   &kp MINUS
+&trans  &kp KP_MULTIPLY  &kp KP_DIVIDE  &mt LS(NUMBER_4) NUMBER_4  &mt LS(NUMBER_5) NUMBER_5  &mt LS(NUMBER_6) NUMBER_6    &kp GRAVE            &kp LS(NUMBER_7)             &kp RA(NUMBER_7)  &kp RA(NUMBER_0)  &kp LS(NUMBER_1)   &kp LS(MINUS)
+&trans  &trans           &trans         &mt LS(NUMBER_1) NUMBER_1  &mt LS(NUMBER_2) NUMBER_2  &mt LS(NUMBER_3) NUMBER_3    &trans               &kp LS(NUMBER_0)             &kp RA(NUMBER_8)  &kp RA(NUMBER_9)  &kp LS(AMPERSAND)  &kp LS(GRAVE)
+                                        &mt LS(NUMBER_0) NUMBER_0  &trans                     &trans                       &trans               &trans                       &trans
             >;
         };
 
         tri {
             bindings = <
 &bootloader     &trans        &trans        &trans        &trans        &sys_reset      &sys_reset    &trans          &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans              &bootloader
-&bt BT_CLR_ALL  &trans        &trans        &trans        &trans        &trans          &trans        &kp C_MUTE      &kp C_VOLUME_DOWN     &kp C_VOLUME_UP       &trans              &trans
+&bt BT_CLR_ALL  &trans        &trans        &bl BL_TOG    &bl BL_DEC    &bl BL_INC      &trans        &kp C_MUTE      &kp C_VOLUME_DOWN     &kp C_VOLUME_UP       &trans              &ext_power EP_TOG
 &bt BT_CLR      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp C_REWIND  &kp C_PREVIOUS  &kp C_PLAY_PAUSE      &kp C_NEXT            &kp C_FAST_FORWARD  &trans
                                             &trans        &trans        &trans          &trans        &trans          &trans
             >;
