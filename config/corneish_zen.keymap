@@ -4,23 +4,45 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    behaviors {
+        hml: homewrow_mods_left {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_LEFT_HAND";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 40 41 39>;
+        };
+
+        hmr: homewrow_mods_right {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_RIGHT_HAND";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         base {
             bindings = <
-&mt ESCAPE TAB             &kp Q             &kp W               &kp E                          &kp R           &kp T        &kp Y     &kp U            &kp I                &kp O                &kp P                      &mt LEFT_BRACKET RIGHT_BRACKET
-&mt LEFT_SHIFT LS(LG(S))   &mt LEFT_SHIFT A  &mt LEFT_CONTROL S  &mt LEFT_ALT D                 &mt LEFT_GUI F  &kp G        &kp H     &mt RIGHT_GUI J  &mt RIGHT_ALT K      &mt RIGHT_CONTROL L  &mt RIGHT_SHIFT SEMICOLON  &kp BACKSLASH
-&mt LEFT_CONTROL CAPSLOCK  &kp Z             &kp X               &kp C                          &kp V           &kp B        &kp N     &kp M            &kp COMMA            &kp DOT              &kp SLASH                  &kp SQT
-                                                                 &mt LS(NUMBER_2) LS(NUMBER_1)  &lt 1 ENTER     &kp SPACE    &kp BSPC  &lt 2 DELETE     &mt MINUS LS(MINUS)
+&mt ESCAPE TAB             &kp Q              &kp W                &kp E                          &kp R            &kp T        &kp Y     &kp U             &kp I                &kp O                 &kp P                       &mt LEFT_BRACKET RIGHT_BRACKET
+&kp LEFT_SHIFT             &hml LEFT_SHIFT A  &hml LEFT_CONTROL S  &hml LEFT_ALT D                &hml LEFT_GUI F  &kp G        &kp H     &hmr RIGHT_GUI J  &hmr RIGHT_ALT K     &hmr RIGHT_CONTROL L  &hmr RIGHT_SHIFT SEMICOLON  &kp BACKSLASH
+&mt LEFT_CONTROL CAPSLOCK  &kp Z              &kp X                &kp C                          &kp V            &kp B        &kp N     &kp M             &kp COMMA            &kp DOT               &kp SLASH                   &kp SQT
+                                                                   &mt LS(NUMBER_2) LS(NUMBER_1)  &lt 1 ENTER      &kp SPACE    &kp BSPC  &lt 2 DELETE      &mt MINUS LS(MINUS)
             >;
         };
 
         lower {
             bindings = <
-&kp F1  &kp F2             &kp F3               &kp F4            &kp F5            &kp F6     &kp INSERT  &kp HOME        &kp END         &kp PAGE_UP   &kp PAGE_DOWN    &trans
-&kp F7  &mt LEFT_SHIFT F8  &mt LEFT_CONTROL F9  &mt LEFT_ALT F10  &mt LEFT_GUI F11  &kp F12    &trans      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
-&trans  &trans             &trans               &trans            &trans            &trans     &trans      &trans          &trans          &trans        &trans           &trans
+&kp F1  &kp F2             &kp F3               &kp F4            &kp F5            &kp F6     &kp HOME    &trans          &kp PAGE_DOWN   &kp PAGE_UP   &trans           &trans
+&kp F7  &mt LEFT_SHIFT F8  &mt LEFT_CONTROL F9  &mt LEFT_ALT F10  &mt LEFT_GUI F11  &kp F12    &kp END     &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
+&trans  &trans             &trans               &trans            &trans            &trans     &kp INSERT  &trans          &trans          &trans        &trans           &trans
                                                 &trans            &trans            &trans     &trans      &trans          &trans
             >;
         };
