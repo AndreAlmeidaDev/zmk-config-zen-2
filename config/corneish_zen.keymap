@@ -48,9 +48,9 @@
 
         lower {
             bindings = <
-&kp F1  &kp F2             &kp F3               &kp F4            &kp F5            &kp F6     &kp HOME    &trans          &kp PAGE_DOWN   &kp PAGE_UP   &trans           &trans
-&kp F7  &mt LEFT_SHIFT F8  &mt LEFT_CONTROL F9  &mt LEFT_ALT F10  &mt LEFT_GUI F11  &kp F12    &kp END     &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
-&trans  &trans             &trans               &trans            &trans            &trans     &kp INSERT  &trans          &trans          &trans        &trans           &trans
+&kp F1  &kp F2             &kp F3               &kp F4            &kp F5            &kp F6     &kp HOME    &kp PAGE_UP     &trans          &trans           &trans  &trans
+&kp F7  &mt LEFT_SHIFT F8  &mt LEFT_CONTROL F9  &mt LEFT_ALT F10  &mt LEFT_GUI F11  &kp F12    &kp END     &kp PAGE_DOWN   &kp UP_ARROW    &trans           &trans  &trans
+&trans  &trans             &trans               &trans            &trans            &trans     &kp INSERT  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans  &trans
                                                 &trans            &trans            &trans     &trans      &trans          &trans
             >;
         };
